@@ -1,10 +1,8 @@
-FROM ruby:3.1.2-alpine3.16
+FROM ruby:3.2.2-alpine
 
 RUN set -xe \
-    && apk add --no-cache \
-        libstdc++ sqlite-libs \
     && apk add --no-cache --virtual .build-deps \
-        build-base sqlite-dev \
+        libstdc++ sqlite-libs build-base sqlite-dev \
     && gem install mailcatcher \
     && apk del .build-deps
 
