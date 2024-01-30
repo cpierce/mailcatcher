@@ -1,4 +1,4 @@
-FROM ruby:3.1.2-alpine
+FROM ruby:3.3-alpine
 
 # Create and set the /app directory as the working directory
 WORKDIR /app
