@@ -1,4 +1,4 @@
-FROM ruby:3.3-alpine
+FROM ruby:3.1.2-alpine
 
 # Create and set the /app directory as the working directory
 WORKDIR /app
@@ -13,8 +13,10 @@ ENV PATH="${GEM_HOME}/bin:${PATH}"
 COPY . .
 
 RUN set -xe \
+    && apk add --no-cache \
+        libstdc++ sqlite-libs \
     && apk add --no-cache --virtual .build-deps \
-        libstdc++ sqlite-libs build-base sqlite-dev \
+        build-base sqlite-dev \
     && bundle install \
     && apk del .build-deps
 
