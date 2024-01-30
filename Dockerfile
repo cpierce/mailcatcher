@@ -2,7 +2,7 @@ FROM ruby:3.3-alpine
 
 RUN set -xe \
     && apk add --no-cache --virtual .build-deps \
-        libstdc++ sqlite-libs gcompat build-base sqlite-dev \
+        libstdc++ sqlite-libs build-base sqlite-dev \
     && gem install sqlite3 --no-document --platform ruby \
     && gem install mailcatcher --no-document \
     && apk del .build-deps
