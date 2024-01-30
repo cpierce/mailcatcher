@@ -1,23 +1,10 @@
 FROM ruby:3.3-alpine
 
-# Create and set the /app directory as the working directory
-WORKDIR /app
-
-# Set GEM_HOME to /app
-ENV GEM_HOME=/app
-
-# Add /app/bin to PATH
-ENV PATH="${GEM_HOME}/bin:${PATH}"
-
-# Copy environment files
-COPY . .
-
 RUN set -xe \
-    && apk add --no-cache \
-        libstdc++ sqlite-libs \
     && apk add --no-cache --virtual .build-deps \
-        build-base sqlite-dev \
-    && bundle install \
+        libstdc++ sqlite-libs gcompat build-base sqlite-dev \
+    && gem install sqlite3 --no-document --platform ruby \
+    && gem install mailcatcher --no-document \
     && apk del .build-deps
 
 # expose ports

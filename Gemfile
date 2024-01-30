@@ -1,3 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'mailcatcher', '~> 0.8.2'
+# Platform-specific gems
+platform :ruby do
+  gem 'sqlite3'
+  gem 'mailcatcher', '0.9.0'
+end
