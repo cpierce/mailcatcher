@@ -33,6 +33,8 @@
 
 Running MailCatcher in a Docker container ensures consistency, ease of integration, portability, efficiency, and maintainability. It simplifies capturing and testing emails in development environments, making it a valuable tool for modern application development.
 
+---
+
 ## Configuration and Technical Details
 
 ### MailCatcher Ports in Docker
@@ -60,16 +62,16 @@ services:
       - "1025:1025" # SMTP server
 ```
 
-## Sending an Email
+### Sending an Email
 
-### Prerequisites
+#### Prerequisites
 
 - Ensure MailCatcher is running and listening on port 1025.
 - Have `nc` (Netcat) installed on your machine (alternatively you can use `telnet`)
 
-### Steps to Send an Email
+#### Steps to Send an Email
 
-#### Step 1: Connect to MailCatcher's SMTP Server
+##### Step 1: Connect to MailCatcher's SMTP Server
 
 Open your terminal and connect to the SMTP server:
 
@@ -77,7 +79,7 @@ Open your terminal and connect to the SMTP server:
 nc localhost 1025
 ```
 
-#### Step 2: Send an Email
+##### Step 2: Send an Email
 
 Enter the following commands to send an email:
 
@@ -93,11 +95,11 @@ This is a test message.
 QUIT
 ```
 
-#### Step 3: View the Email
+##### Step 3: View the Email
 
 Now that you've sent an email, visit [http://localhost:1080](http://localhost:1080) in your browser to view the email in MailCatcher's web interface.
 
-### Configuring Your Application to Use MailCatcher
+#### Configuring Your Application to Use MailCatcher
 
 To configure your application to send emails via MailCatcher, use the following settings:
 
