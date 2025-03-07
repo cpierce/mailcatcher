@@ -33,7 +33,7 @@
 
 Running MailCatcher in a Docker container ensures consistency, ease of integration, portability, efficiency, and maintainability. It simplifies capturing and testing emails in development environments, making it a valuable tool for modern application development.
 
-## Coniguration and Technical Details
+## Configuration and Technical Details
 
 ### MailCatcher Ports in Docker
 
